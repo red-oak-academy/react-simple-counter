@@ -1,68 +1,96 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Vorbereitungen
 
-## Available Scripts
+Zum Start des Workshops setzen wir einige Software-Installationen auf deinem Rechner voraus. Hier findest du eine Checkliste und Hinweise, wie du die einzelnen Komponenten installieren kannst.
 
-In the project directory, you can run:
+## Hardware und Betriebssystem
 
-### `npm start`
+* Einen Rechner, der nicht älter als 10 Jahre ist. 
+* Ein Rechner mit Windows 10, Mac OS X oder einer modernen Linux-Distribution. Alternativ eine virtuelle Machine.
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## Software
+* NodeJS-Installation
+* Entwicklungsumgebung: Visual Studio Code
+> Gerne auch alternative Entwicklungsumgebungen, jedoch können wir die Unterstützung im Einzelfall nicht im vollen Maße gewährleisten.
+* optional: Git-Client
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+## Installation von NodeJS
+Falls ihr noch kein NodeJS installiert habt, genügt die Installation des aktuellen LTS-Release über die [Internetpräsenz von NodeJS](https://nodejs.org/de/).
 
-### `npm test`
+Da wir im Entwicklungsalltag oft zwischen verschiedenen NodeJS-Installationen wechseln, lohnt sich der Einsatz eines Versionsmanagers. NVM ist ein CLI-Tool, mit dem Ihr bequem zwischen Versionen wechseln könnt. Ein Ableger für Windows ist als NVM for Windows verfügbar.
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### NVM unter Linux installieren
 
-### `npm run build`
+Eine Anleitung zur Installation von nvm unter Linux findet sich auf dem [Github-Repository des Entwicklers](https://github.com/nvm-sh/nvm).
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+> Für das ausführen von Scripten aus dem Internet ist jeder selbst verantwortlich. Im Zweifel solltet ihr das Script auf der Seite prüfen, bevor ihr es laut Anleitung ausführt.
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+### NVM for Windows installieren
+der aktuelle Installer für _NVM for Windows_ ist auf dem [Github-Repository](https://github.com/coreybutler/nvm-windows/releases) zu finden. 
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### eine Node-Version mittels NVM installieren
 
-### `npm run eject`
+Eine Liste der verfügbaren Node-Versionen lässt sich mit folgendem Befehl abrufen:
+```
+nvm list available
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+|   CURRENT    |     LTS      |  OLD STABLE  | OLD UNSTABLE |
+|--------------|--------------|--------------|--------------|
+|    13.0.1    |   12.13.0    |   0.12.18    |   0.11.16    |
+|    13.0.0    |   10.17.0    |   0.12.17    |   0.11.15    |
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+...
+``` 
+Wir wollten die aktuelle LTS-Version nutzen. Diese installieren und aktivieren wir mit folgenden Befehlen:
 
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+```
+nvm install 12.13.0
+nvm use 12.13.0
+```
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+## Installation von Visual Studio Code
 
-## Learn More
+Ein Installationspaket für dein Entsprechendes Betriebssystem findest du auf der [Internetpräsenz von Visual Studio Code](https://code.visualstudio.com/).
+Die Installation selbst sollte selbsterklärend sein.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+## Ready To Go?
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+Stimmt deine Entwicklungsumgebung? Das kannst du schnell überprüfen, indem du deine Versionen überprüfst:
 
-### Code Splitting
+```
+node --version
+v12.13.0
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
+npm --version
+6.12.0
 
-### Analyzing the Bundle Size
+npx --version
+6.12.0
+```
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
+Wenn du die gleichen oder ähnliche Ausgaben wie oben erhälts, kann es losgehen. Ob wirklich alles funktioniert prüfen wir, in dem wir ein neues, temporäres Projekt anlegen:
 
-### Making a Progressive Web App
+```
+npx create-react-app temp
+npx: installed 91 in 11.272s
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
+Creating a new React app in E:\Development\Repositories\git.redoak.me\RedOakUniversity\react-basics-workshop\temp.
 
-### Advanced Configuration
+Installing packages. This might take a couple of minutes.
+Installing react, react-dom, and react-scripts...
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
+...
 
-### Deployment
+We suggest that you begin by typing:
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
+  cd temp
+  npm start
 
-### `npm run build` fails to minify
+Happy hacking!
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+```
+
+Der Befehl läuft fehlerfrei durch und du erhälst ein Ähnliches Ergebnis wie oben? Super, dann können wir gemeinsam starten! 
+
+## Probleme bei der Installation?
+
+Wir glauben, dass die Entwickler dieser Tools und Software hervoragende Dokumentation bieten. Solltest du im Einzelfall dennoch Probleme haben, kannst du dich gerne bei uns [melden](mailto:robin.wloka@red-oak-consulting.com)!
